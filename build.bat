@@ -1,0 +1,1 @@
+%~dp0/busybox.exe sh %~dp0/build.sh
