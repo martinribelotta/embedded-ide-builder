@@ -1,0 +1,5 @@
+msys
+var/cache
+var/lib/mingw-get/lock  
+var/lib/mingw-get/data/*
+!var/lib/mingw-get/data/profile.xml

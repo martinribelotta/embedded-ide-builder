@@ -1,0 +1,14 @@
+msys-base
+msys-bash
+msys-core
+msys-coreutils
+msys-cygutils
+msys-diffutils
+msys-grep
+msys-make
+msys-openssl
+msys-patch
+msys-sed
+msys-tar
+msys-unzip
+msys-wget
