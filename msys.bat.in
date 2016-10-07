@@ -13,6 +13,8 @@ rem A value similar to C:\msys\1.0\bin is what the "Start in:" field needs
 rem to represent.
 
 rem ember value of GOTO: is used to know recursion has happened.
+set HOME=%HOMEDRIVE%%HOMEPATH%
+
 if "%1" == "GOTO:" goto %2
 
 if NOT "x%WD%" == "x" set WD=
