@@ -12,3 +12,4 @@ msys-sed
 msys-tar
 msys-unzip
 msys-wget
+msys-mintty

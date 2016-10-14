@@ -1,9 +1,21 @@
-export WGET_CMD="wget --no-check-certificate"
+#!/bin/sh
 
 get_and_unzip () {
 echo Getting $1 from $2 to $3
-test -f $1 || $(echo "downloading" && $WGET_CMD -O $1 $2) && echo "Already download"
-test -d $3 || $(echo "Mkdir and unzip" && mkdir $3 && unzip -d $3 $1) && echo "Already unzip"
+if [ -f $1 ]
+then
+    echo "Already download"
+else
+    echo "Downloading"
+    wget --no-check-certificate -O $1 $2
+fi
+if [ -d $3 ]
+then
+    echo "Already unzip"
+else
+    echo "mkdir and unzip"
+    mkdir $3 && unzip -d $3 $1
+fi
 }
 
 export GCC_URL=https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q3-update/+download/gcc-arm-none-eabi-5_4-2016q3-20160926-win32.zip
@@ -21,10 +33,16 @@ export OOCD_LOCAL_DIR=$BASE_MSYS/oocd
 
 get_and_unzip $OOCD_LOCAL $OOCD_URL $OOCD_LOCAL_DIR
 
+export EIDE_URL=https://github.com/martinribelotta/embedded-ide/releases/download/v0.1/embedded-ide-0.1.1-win32.zip
+export EIDE_LOCAL=$(basename $EIDE_URL)
+export EIDE_LOCAL_DIR=$BASE_MSYS/embedded-ide
+
+get_and_unzip $EIDE_LOCAL $EIDE_URL $EIDE_LOCAL_DIR
+
 test -d /etc/profile.d || mkdir /etc/profile.d
 
 cat >/etc/profile.d/extra_path.sh <<EOM
-export PATH=$PATH:/oocd/bin:/gcc-arm-embedded/bin
+export PATH=$PATH:/oocd/bin:/gcc-arm-embedded/bin:/embedded-ide
 EOM
 
 bash -i
