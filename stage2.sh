@@ -27,7 +27,7 @@ get_and_unzip $GCC_LOCAL $GCC_URL $GCC_LOCAL_DIR
 #test -f $GCC_LOCAL || $WGET_CMD -O $GCC_LOCAL $GCC_URL
 #test -d $GCC_LOCAL_DIR || $(mkdir $GCC_LOCAL_DIR && unzip -d $GCC_LOCAL_DIR $GCC_LOCAL)
 
-export OOCD_URL=http://sysprogs.com/files/gnutoolchains/arm-eabi/openocd/OpenOCD-20160901.zip
+export OOCD_URL=http://none.at/openocd-0.10-repacket.zip
 export OOCD_LOCAL=$(basename $OOCD_URL)
 export OOCD_LOCAL_DIR=$BASE_MSYS/oocd
 

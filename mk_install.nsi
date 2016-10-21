@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "Embedded IDE"
-!define PRODUCT_VERSION "0.1.1"
+!define PRODUCT_VERSION "0.1.2"
 !define PRODUCT_PUBLISHER "None"
 !define PRODUCT_WEB_SITE "https://github.com/martinribelotta/embedded-ide"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\embedded-ide.exe"
@@ -52,7 +52,7 @@ Section "Principal" SEC01
   CreateDirectory "$SMPROGRAMS\embedded-ide"
   CreateShortCut "$SMPROGRAMS\embedded-ide\embedded-ide.lnk" "$INSTDIR\start-ide.bat" "" "$INSTDIR\embedded-ide\icon.ico"
   CreateShortCut "$SMPROGRAMS\embedded-ide\Uninstall.lnk" "$INSTDIR\uninst.exe"
-  CreateShortCut "$DESKTOP\embedded-ide.lnk" "$INSTDIR\bin\start-ide.bat" "" "$INSTDIR\embedded-ide\icon.ico"
+  CreateShortCut "$DESKTOP\embedded-ide.lnk" "$INSTDIR\start-ide.bat" "" "$INSTDIR\embedded-ide\icon.ico"
 SectionEnd
 
 Section -AdditionalIcons
