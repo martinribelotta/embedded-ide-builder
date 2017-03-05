@@ -1,0 +1,5 @@
+set HOME=%HOMEDRIVE%%HOMEPATH%
+set B=%~dp0
+set PATH=%B%\bin;%B%\gcc-arm-embedded\bin;%B%\oocd\bin;%B%\embedded-ide
+start embedded-ide
+exit

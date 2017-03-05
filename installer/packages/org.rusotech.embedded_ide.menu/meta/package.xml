@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Embedded IDE Stand Alone Menu</DisplayName>
+    <Description>Stand alone menu. Select it if you want to run IDE without Mingw32</Description>
+    <Version>0.2.0</Version>
+    <ReleaseDate>2016-12-12</ReleaseDate>
+    <Script>embedded_ide.qs</Script>
+    <SortingPriority>1100</SortingPriority>
+</Package>

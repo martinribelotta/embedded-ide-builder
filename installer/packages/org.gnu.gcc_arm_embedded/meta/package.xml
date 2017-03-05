@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>GCC ARM Embedded</DisplayName>
+    <Description>GNU Compiler Collection Bare Metal</Description>
+    <Version>5.4.2</Version>
+    <ReleaseDate>2016-09-28</ReleaseDate>
+    <Licenses>
+        <License name="GNU GENERAL PUBLIC LICENSE Version 3" file="COPYING.GPLv3" />
+    </Licenses>
+    <Default>true</Default>
+    <SortingPriority>400</SortingPriority>
+</Package>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Mingw32-MSYS</DisplayName>
+    <Description>Unix tools from MSYS/Mingw32</Description>
+    <Version>0.1</Version>
+    <ReleaseDate>2016-12-12</ReleaseDate>
+    <Licenses>
+        <License name="BSD 3-clauses" file="COPYING.BSD-no-advert" />
+        <License name="GNU FREE DOCUMENTATION LICENCE Version 1.3" file="COPYING.GFDL" />
+        <License name="GNU GENERAL LIBRARY PUBLIC LICENCE version 2" file="COPYING.LGPLv2" />
+    </Licenses>
+    <Default>true</Default>
+    <SortingPriority>1200</SortingPriority>
+    <Script>msys.qs</Script>
+</Package>

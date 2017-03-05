@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Embedded IDE</DisplayName>
+    <Description>Core System for IDE</Description>
+    <Version>0.2.0</Version>
+    <ReleaseDate>2016-12-12</ReleaseDate>
+    <Default>true</Default>
+    <ForcedInstallation>true</ForcedInstallation>
+    <SortingPriority>1000</SortingPriority>
+</Package>
