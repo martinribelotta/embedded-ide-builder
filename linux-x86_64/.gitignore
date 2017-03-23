@@ -1,0 +1,12 @@
+*.AppImage
+*.tar.*
+clang*
+ctags*
+gcc-arm*
+CIAA*
+openocd*
+diff*
+patch*
+make*
+embedded*
+build*
