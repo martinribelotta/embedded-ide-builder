@@ -82,7 +82,7 @@ if true; then
     F=$(basename ${URL_CLANG})
     D=$(echo ${F} | sed -E 's/.tar.gz|.tar.bz2|.tar.xz//')
     #wget --no-check-certificate ${URL_CLANG} -O ${F}
-    tar vxf ${F} ${D}/bin/clang-4.0 ${D}/bin/clang ${D}/bin/clang++ --strip-components=1 -C ${OUTPATH}
+    tar vxf ${F} --strip-components=1 -C ${OUTPATH} ${D}/bin/clang-4.0 ${D}/bin/clang ${D}/bin/clang++
 fi
 
 if false; then
