@@ -41,14 +41,14 @@ log_file=build-$(date --rfc-3339=s|tr ' ' _)
 
 exec &> >(tee -a "$log_file")
 
-if false; then
+if true; then
     echo "Initialize out with skeleton"
     mkdir -p ${OUTPATH}
     cp -fR skeleton/* ${OUTPATH}
     echo "done"
 fi
 
-if false; then
+if true; then
     for TARGET in OPENOCD MAKE CTAGS DIFF PATCH
     do
         vu="URL_${TARGET}"
@@ -69,7 +69,7 @@ if false; then
     done
 fi
 
-if false; then
+if true; then
     echo "doenloading gcc arm embedded..."
     wget --no-check-certificate ${URL_ARMGCC} -O ${FILE_ARMGCC}
     echo "uncrompress gcc arm embedded..."
@@ -85,7 +85,7 @@ if true; then
     tar vxf ${F} --strip-components=1 -C ${OUTPATH} ${D}/bin/clang-4.0 ${D}/bin/clang ${D}/bin/clang++
 fi
 
-if false; then
+if true; then
     echo "doenloading embedded-ide"
     wget --no-check-certificate ${URL_EMBIDE} -O ${FILE_EMBIDE}
     tar xf ${FILE_EMBIDE}
@@ -96,7 +96,7 @@ if false; then
     cd ${O}
 fi
 
-if false; then
+if true; then
     mkdir -p ${OUTPATH}/lib
     echo "copy qt libs to ${OUTPATH}"
     for l in libQt5Core.so libQt5DBus.so libQt5Gui.so libQt5Network.so \
