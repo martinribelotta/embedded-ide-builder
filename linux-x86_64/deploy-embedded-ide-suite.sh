@@ -4,8 +4,12 @@
 # sudo apt-get install libhidapi-dev p7z build-essential wget git
 
 VERSION=0.4.0
-QT_VERSION=5.7
-QTSDK_DIR=/opt/Qt/${QT_VERSION}/gcc_64/
+
+QTSDK_DIR=/opt/Qt5.8.0/5.8/gcc_64
+# Examples:
+# QTSDK_DIR=/opt/Qt/5.7/gcc_64/
+# QTSDK_DIR=/opt/Qt5.8.0/5.8/gcc_64
+
 OUTPATH=${PWD}/build-CIAA_SUITE-${VERSION}-x86_64.AppImage
 OUTFILE=${PWD}/CIAA_SUITE-${VERSION}-x86_64.AppImage
 
