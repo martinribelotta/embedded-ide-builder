@@ -1,20 +1,12 @@
 @echo off
+set QTIFW=C:\Qt\QtIFW2.0.3\bin\
+
 set BASE=%~dp0
 set BASE_MSYS=%BASE%\msys
-set PATH=%BASE%\bin
+set PATH=%BASE%\bin;%QTIFW%
+set INSTALLER_PATH=%BASE%\installer
 
-mingw-get update
-
-set packages=
-SetLocal EnableDelayedExpansion
-for /F "delims=" %%i in (packages.txt) do set packages=!packages! %%i
-
-echo Installing %packages%
-mingw-get install %packages%
-EndLocal
-
-:1
-copy/Y msys.bat.in %BASE%\msys\msys.bat
+call build-msys.bat
 
 set PATH=%BASE%\msys\bin
 %BASE%\msys\bin\bash stage2.sh
