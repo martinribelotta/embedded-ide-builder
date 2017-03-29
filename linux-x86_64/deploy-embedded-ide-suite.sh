@@ -5,9 +5,9 @@
 
 VERSION=0.4.0
 
-QTSDK_DIR=/opt/Qt5.8.0/5.8/gcc_64
+#QTSDK_DIR=/opt/Qt5.8.0/5.8/gcc_64
 # Examples:
-# QTSDK_DIR=/opt/Qt/5.7/gcc_64/
+QTSDK_DIR=/opt/Qt/5.7/gcc_64/
 # QTSDK_DIR=/opt/Qt5.8.0/5.8/gcc_64
 
 OUTPATH=${PWD}/build-CIAA_SUITE-${VERSION}-x86_64.AppImage
@@ -45,14 +45,14 @@ log_file=build-$(date --rfc-3339=s|tr ' ' _)
 
 exec &> >(tee -a "$log_file")
 
-if true; then
+if false; then
     echo "Initialize out with skeleton"
     mkdir -p ${OUTPATH}
     cp -fR skeleton/* ${OUTPATH}
     echo "done"
 fi
 
-if true; then
+if false; then
     for TARGET in OPENOCD MAKE CTAGS DIFF PATCH
     do
         vu="URL_${TARGET}"
@@ -73,7 +73,7 @@ if true; then
     done
 fi
 
-if true; then
+if false; then
     echo "doenloading gcc arm embedded..."
     wget --no-check-certificate ${URL_ARMGCC} -O ${FILE_ARMGCC}
     echo "uncrompress gcc arm embedded..."
@@ -81,7 +81,7 @@ if true; then
     echo "done."
 fi
 
-if true; then
+if false; then
     echo "download and install clang..."
     F=$(basename ${URL_CLANG})
     D=$(echo ${F} | sed -E 's/.tar.gz|.tar.bz2|.tar.xz//')
