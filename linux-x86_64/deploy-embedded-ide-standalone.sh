@@ -40,7 +40,7 @@ if true; then
     mkdir -p ${OUTPATH}/lib
     echo "copy qt libs to ${OUTPATH}"
     for l in libQt5Core.so libQt5DBus.so libQt5Gui.so libQt5Network.so \
-             libQt5Svg.so libQt5Widgets.so libQt5XcbQpa.so libQt5Xml.so \
+             libQt5Svg.so libQt5Widgets.so libQt5XcbQpa.so libQt5Xml.so libQt5Concurrent.so \
              libQt5PrintSupport.so ibcc1.so libicudata.so libicui18n.so libicuuc.so
     do
         cp -vP ${QTSDK_DIR}/lib/${l}* ${OUTPATH}/lib
