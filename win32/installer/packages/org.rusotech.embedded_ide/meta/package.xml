@@ -2,9 +2,10 @@
 <Package>
     <DisplayName>Embedded IDE</DisplayName>
     <Description>Core System for IDE</Description>
-    <Version>0.4.0</Version>
-    <ReleaseDate>2017-03-28</ReleaseDate>
+    <Version>0.5.0</Version>
+    <ReleaseDate>2017-08-04</ReleaseDate>
     <Default>true</Default>
-    <ForcedInstallation>true</ForcedInstallation>
     <SortingPriority>1000</SortingPriority>
+    <ForcedInstallation>true</ForcedInstallation>
+    <Script>embedded_ide.qs</Script>
 </Package>

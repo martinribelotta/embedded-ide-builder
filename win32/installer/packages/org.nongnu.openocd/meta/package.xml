@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>OpenOCD 0.10.0-dev-00247-g73b676c</DisplayName>
-    <Description>Open on Chip Debugger. Dreddie Chopin Repackaged Version</Description>
+    <Description>Open on Chip Debugger. Freddie Chopin Repackaged Version</Description>
     <Version>0.10.0</Version>
     <ReleaseDate>2016-03-12</ReleaseDate>
     <Licenses>
@@ -9,4 +9,5 @@
     </Licenses>
     <Default>true</Default>
     <SortingPriority>300</SortingPriority>
+    <Script>zadig.qs</Script>
 </Package>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Installer>
     <Name>Embedded IDE</Name>
-    <Version>0.4.0</Version>
+    <Version>0.5.0</Version>
     <Title>Embedded IDE Installer</Title>
     <Publisher>Rusotech</Publisher>
     <StartMenuDir>Embedded IDE</StartMenuDir>
-    <TargetDir>@ApplicationsDir@/EmbeddedIDE</TargetDir>
+    <TargetDir>@RootDir@/EmbeddedIDE</TargetDir>
+    <RunProgram>@TargetDir@/embedded-ide/embedded-ide.exe</RunProgram>
+    <RunProgramDescription>EmbeddedIDE</RunProgramDescription>
+	<AllowSpaceInPath>false</AllowSpaceInPath>
 </Installer>
