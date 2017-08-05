@@ -3,11 +3,11 @@
 # dependiencies: hidapi, 7z, build-essential, wget,
 # sudo apt-get install libhidapi-dev p7z build-essential wget git
 
-VERSION=0.4.0
+VERSION=0.5.0
 
 #QTSDK_DIR=/opt/Qt5.8.0/5.8/gcc_64
 # Examples:
-QTSDK_DIR=/opt/Qt/5.7/gcc_64/
+QTSDK_DIR=/opt/Qt/5.9.1/gcc_64/
 # QTSDK_DIR=/opt/Qt5.8.0/5.8/gcc_64
 
 OUTPATH=${PWD}/build-CIAA_SUITE-${VERSION}-x86_64.AppImage
@@ -27,7 +27,8 @@ URL_CTAGS="http://prdownloads.sourceforge.net/ctags/ctags-${VER_CTAGS}.tar.gz"
 URL_DIFF="http://ftp.gnu.org/gnu/diffutils/diffutils-${VER_DIFF}.tar.xz"
 URL_PATCH="http://ftp.gnu.org/gnu/patch/patch-${VER_PATCH}.tar.xz"
 URL_CLANG="http://releases.llvm.org/${VER_CLANG}/clang+llvm-${VER_CLANG}-x86_64-linux-gnu-debian8.tar.xz"
-URL_OPENOCD="https://downloads.sourceforge.net/project/openocd/openocd/${VER_OPENOCD}/openocd-${VER_OPENOCD}.tar.bz2?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fopenocd%2Ffiles%2Fopenocd%2F0.10.0%2F&ts=1490145449&use_mirror=ufpr"
+URL_OPENOCD=
+#"https://github.com/gnu-mcu-eclipse/openocd/releases/download/v0.10.0-2-20170622-1535-dev/gnu-mcu-eclipse-openocd-0.10.0-2-20170622-1535-dev-debian32.tgz"
 URL_ARMGCC="https://developer.arm.com/-/media/Files/downloads/gnu-rm/6_1-2017q1/gcc-arm-none-eabi-6-2017-q1-update-linux.tar.bz2"
 URL_EMBIDE="https://github.com/martinribelotta/embedded-ide/archive/master.tar.gz"
 URL_APPIMAGE="https://github.com/probonopd/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
@@ -44,15 +45,15 @@ RULE_OPENOCD="./configure --prefix=$OUTPATH --enable-cmsis-dap --enable-ftdi --e
 log_file=build-$(date --rfc-3339=s|tr ' ' _)
 
 exec &> >(tee -a "$log_file")
-
 if false; then
+if true; then
     echo "Initialize out with skeleton"
     mkdir -p ${OUTPATH}
     cp -fR skeleton/* ${OUTPATH}
     echo "done"
 fi
 
-if false; then
+if true; then
     for TARGET in OPENOCD MAKE CTAGS DIFF PATCH
     do
         vu="URL_${TARGET}"
@@ -73,7 +74,7 @@ if false; then
     done
 fi
 
-if false; then
+if true; then
     echo "doenloading gcc arm embedded..."
     wget --no-check-certificate ${URL_ARMGCC} -O ${FILE_ARMGCC}
     echo "uncrompress gcc arm embedded..."
@@ -81,7 +82,7 @@ if false; then
     echo "done."
 fi
 
-if false; then
+if true; then
     echo "download and install clang..."
     F=$(basename ${URL_CLANG})
     D=$(echo ${F} | sed -E 's/.tar.gz|.tar.bz2|.tar.xz//')
@@ -112,7 +113,7 @@ if true; then
     cp -fPRv ${QTSDK_DIR}/plugins ${OUTPATH}
     echo "copy qt libs done"
 fi
-
+fi
 APPIMAGE_EXE=$(basename ${URL_APPIMAGE})
 wget --no-check-certificate ${URL_APPIMAGE} -O ${APPIMAGE_EXE}
 chmod a+x ${APPIMAGE_EXE}

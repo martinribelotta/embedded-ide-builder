@@ -3,8 +3,8 @@
 # dependiencies: hidapi, 7z, build-essential, wget,
 # sudo apt-get install libhidapi-dev p7z build-essential wget git
 
-VERSION=0.4.0
-QT_VERSION=5.7
+VERSION=0.5.0
+QT_VERSION=5.9.1
 QTSDK_DIR=/opt/Qt/${QT_VERSION}/gcc_64/
 OUTPATH=${PWD}/build-embedded-ide-${VERSION}-x86_64.AppImage
 OUTFILE=${PWD}/embedded-ide-${VERSION}-x86_64.AppImage
