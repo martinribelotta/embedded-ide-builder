@@ -173,8 +173,7 @@ $(UNCOMPRESS_CLANG): $(LOCAL_CLANG)
 
 $(INSTALL_CLANG): $(UNCOMPRESS_CLANG)
 	install -D -b -t $(INSTALL_DIR)/usr/bin $< && \
-	ln -s $@ $(INSTALL_DIR)/usr/bin/clang && \
-	ln -s $@ $(INSTALL_DIR)/usr/bin/clang++
+	cd $(INSTALL_DIR) && ln -s $(notdir $@) clang && ln -s $(notdir $@) clang++
 
 do_remote_clang: $(INSTALL_CLANG)
 
