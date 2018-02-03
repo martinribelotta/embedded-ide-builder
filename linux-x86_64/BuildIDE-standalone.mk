@@ -7,9 +7,7 @@ BUILD_DIR=$(BASE)/build-$(SOURCE_DIR)
 BINARY_BUILD=$(BUILD_DIR)/build/embedded-ide
 INSTALL_DIR=$(BASE)/embedded-ide
 APP_IMAGE_NAME=Embedded_IDE-x86_64.AppImage
-APP_IMAGE_EXEC=$(INSTALL_DIR)/embedded-ide.sh.wrapper
-APP_IMAGE_EXEC2=$(INSTALL_DIR)/embedded-ide.sh
-DEPLOY_OPT=-qmake=/opt/qt58/bin/qmake -no-translations -verbose=2 -appimage
+DEPLOY_OPT=-no-translations -verbose=2 -executable=$(INSTALL_DIR)/usr/bin/embedded-ide
 DESKTOP_FILE=$(INSTALL_DIR)/usr/share/applications/embedded-ide.desktop
 VER=$(shell cat $(SOURCE_DIR)/ide/src/version.cpp |grep -oE 'v[0-9]+\.[0-9]+')
 
@@ -31,18 +29,9 @@ $(BINARY_BUILD): $(SOURCE_DIR)
 	make && \
 	make install INSTALL_ROOT=$(INSTALL_DIR)
 
-$(APP_IMAGE_EXEC): $(SOURCE_DIR)/ide/skeleton/embedded-ide.sh.wrapper
-	install -m 0755 $< $@
-
-$(APP_IMAGE_EXEC2): $(SOURCE_DIR)/ide/skeleton/embedded-ide.sh
-	install -m 0755 $< $@
-
-$(INSTALL_DIR)/embedded-ide.png.png: $(INSTALL_DIR)/usr/share/icons/default/256x256/apps/embedded-ide.png
-	ln -s $< $@
-
-.PHONY: extras
-extras: $(INSTALL_DIR)/embedded-ide.png.png $(APP_IMAGE_EXEC2) $(APP_IMAGE_EXEC)
-
-$(APP_IMAGE_NAME): $(BINARY_BUILD) extras
+$(APP_IMAGE_NAME): $(BINARY_BUILD)
 	cd $(BASE)
-	linuxdeployqt $(DESKTOP_FILE) $(DEPLOY_OPT) -executable=$(APP_IMAGE_EXEC)
+	linuxdeployqt $(DESKTOP_FILE) -qmake=/opt/qt58/bin/qmake $(DEPLOY_OPT) -appimage
+	cp /opt/qt58/lib/libQt5Svg.so.5 $(INSTALL_DIR)/usr/lib
+	cp /opt/qt58/plugins/imageformats/libqsvg.so $(INSTALL_DIR)/usr/plugins/imageformats/
+	linuxdeployqt $(DESKTOP_FILE) -qmake=/opt/qt58/bin/qmake -appimage
