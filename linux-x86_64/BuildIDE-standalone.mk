@@ -9,10 +9,13 @@ INSTALL_DIR=$(BASE)/embedded-ide
 APP_IMAGE_NAME=Embedded_IDE-x86_64.AppImage
 DEPLOY_OPT=-no-translations -verbose=2 -executable=$(INSTALL_DIR)/usr/bin/embedded-ide
 DESKTOP_FILE=$(INSTALL_DIR)/usr/share/applications/embedded-ide.desktop
-VER=$(shell cat $(SOURCE_DIR)/ide/src/version.cpp |grep -oE 'v[0-9]+\.[0-9]+')
+VER=$(shell cat $(SOURCE_DIR)/ide/version.cpp |grep -oP 'v\d+\.\d+[^"]*')
 
-all: $(APP_IMAGE_NAME)
-	cp $< $(OUT)/Embedded_IDE-$(VER)-x86_64.AppImage
+all: scintilla $(APP_IMAGE_NAME)
+	cp $(APP_IMAGE_NAME) $(OUT)/Embedded_IDE-$(VER)-x86_64.AppImage
+
+scintilla:
+	make -C /tmp -f BuildQSCI.mk
 
 $(SOURCE_TARGZ):
 	cd $(BASE)
@@ -34,4 +37,6 @@ $(APP_IMAGE_NAME): $(BINARY_BUILD)
 	linuxdeployqt $(DESKTOP_FILE) -qmake=/opt/qt58/bin/qmake $(DEPLOY_OPT) -appimage
 	cp /opt/qt58/lib/libQt5Svg.so.5 $(INSTALL_DIR)/usr/lib
 	cp /opt/qt58/plugins/imageformats/libqsvg.so $(INSTALL_DIR)/usr/plugins/imageformats/
+	cp /tmp/universal-ctags $(INSTALL_DIR)/usr/bin
+	chmod a+x $(INSTALL_DIR)/usr/bin/universal-ctags
 	linuxdeployqt $(DESKTOP_FILE) -qmake=/opt/qt58/bin/qmake -appimage
